@@ -1,14 +1,13 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import CardList from "./CardList";
-import { movies } from "./data";
 import NameFilter from "./NameFilter.js";
 import Rate from "./Rating";
-
 import Modal from "./Modal";
 import { message } from "antd";
 class CardContainer extends Component {
   state = {
-    movies,
+    movies:this.props.movies,
 
     nameFilter: "",
     minRatingFilter: 0,
@@ -64,5 +63,9 @@ class CardContainer extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  movies: state.movieReducer.movies,
 
-export default CardContainer;
+});
+
+export default connect(mapStateToProps)(CardContainer);
