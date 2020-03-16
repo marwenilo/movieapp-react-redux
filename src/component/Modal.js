@@ -16,6 +16,12 @@ class Maodal extends React.Component {
 
     star : this.props.cardInfo? this.props.cardInfo.star : 3,
 
+    duration:this.props.cardInfo? this.props.cardInfo.duration : "",
+
+    year:this.props.cardInfo? this.props.cardInfo.year : "",
+
+    discription:this.props.cardInfo? this.props.cardInfo.discription : "",
+
     visible: false 
 
   };
@@ -35,7 +41,10 @@ class Maodal extends React.Component {
     this.props.handleEdit({img:this.state.img,
       name:this.state.name,
       star:this.state.star,
-      id:this.props.cardInfo.id
+      id:this.props.cardInfo.id,
+      duration:this.state.duration,
+      year:this.state.year,
+      discription:this.state.discription
       })
 
       &&
@@ -49,6 +58,9 @@ class Maodal extends React.Component {
     this.props.addNewMovie({img:this.state.img,
       name:this.state.name,
       star:this.state.star,
+      duration:this.state.duration,
+      year:this.state.year,
+      discription:this.state.discription
       })
 
   &&
@@ -58,6 +70,9 @@ class Maodal extends React.Component {
       name:'',
       img:'',
       star:3,
+      duration:'',
+      year:'',
+      discription:'',
     });
   };
 
@@ -97,9 +112,12 @@ class Maodal extends React.Component {
 
          <form className="formAdd">
          
-                       <span>Name: </span> <input type="text" placeholder="Enter Name" name='name' onChange={this.handleChange} value={this.state.name}/>
-                       <span>Rating: </span><input type="text" placeholder="Enter Rating" name='star' onChange={this.handleChange} value={this.state.star}/>
-                       <span>Image URL </span><input type="text" placeholder="Enter Image URL" name='img' onChange={this.handleChange} value={this.state.img}/>
+                       <span>Name:  <input type="text" placeholder="Enter Name" name='name' onChange={this.handleChange} value={this.state.name}/></span>
+                       <span>Rating: <input type="text" placeholder="Enter Rating" name='star' onChange={this.handleChange} value={this.state.star}/></span>
+                       <span>Duration :<input type="text" placeholder="Enter Image URL" name='duration' onChange={this.handleChange} value={this.state.duration}/> </span>
+                       <span>Image URL :<input type="text" placeholder="Enter Image URL" name='img' onChange={this.handleChange} value={this.state.img}/></span>
+                       <span>Year: <input type="text" placeholder="Enter Rating" name='year' onChange={this.handleChange} value={this.state.year}/></span>
+                       <span>Discription<input type="text" placeholder="Enter Image URL" name='discription' onChange={this.handleChange} value={this.state.discription}/></span>
                   
                        </form>
                
