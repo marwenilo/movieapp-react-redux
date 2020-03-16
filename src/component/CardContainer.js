@@ -74,7 +74,7 @@ class CardContainer extends Component {
 
         <CardList
           movies={filtered}
-          deleteMovie={this.handlDelete}
+          // deleteMovie={this.handlDelete}
           error={this.error}
         />
 

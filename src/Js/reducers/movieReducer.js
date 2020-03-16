@@ -10,7 +10,7 @@ import {
 
   const InitialState = {movies}
 
-const movieReducer = (state = InitialState, { type, payload }) => {
+const movieReducer = (state = InitialState, { type, payload, id }) => {
       switch (type) {
           case ADD_MOVIE:
           
@@ -26,7 +26,7 @@ const movieReducer = (state = InitialState, { type, payload }) => {
 
             return {
                 ...state,
-                movies: state.movies.filter(el => el.id !== payload)
+                movies: state.movies.filter(el => el.id !== id)
                 //this payload is full of the id from the click of the movie delete btn 
             };
               case EDIT_MOVIE:

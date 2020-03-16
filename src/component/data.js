@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 export const movies=[
     {
         img: "https://i.stack.imgur.com/NPcbv.jpg",
@@ -6,7 +7,7 @@ export const movies=[
         star: 5,
         duration: "189 minutes",
         discription: "The Green Mile is a 1999 American fantasy crime drama film written and directed by Frank Darabont and adapted from Stephen King’s 1996 novel of the same name.",
-        id:Date.now()
+        id:uuidv4()
 
     },
     {
@@ -16,7 +17,7 @@ export const movies=[
         star: 4,
         duration: "107 minutes",
         discription: "Your Name (Kimi no na wa)Is a Japanese animated film directed by Makoto Shinkai, released on August 26 , 2016 in Japan. It is adapted from Makoto Shinkai's novel, published on June 18, 2016 in Japan by Kadokawa.",
-        id:Date.now()
+        id:uuidv4()
 
     },
     {
@@ -26,7 +27,7 @@ export const movies=[
         star: 2,
         duration: "106 minutes",
         discription: "I Origins is an independent drama sci-fi , written, produced and directed by Mike Cahill, released in 2014.",
-        id:Date.now()
+        id:uuidv4()
 
     },
     {
@@ -36,7 +37,7 @@ export const movies=[
         star: 4,
         duration: "110 minutes",
         discription: "Wanted is a German-American film directed by Timur Bekmambetov, released in 2008. It is the adaptation of the Wanted comicsseries written by Mark Millarand drawn by JG Jones ",
-        id:Date.now()
+        id:uuidv4()
 
     },
     {
@@ -46,7 +47,7 @@ export const movies=[
         star: 5,
         duration: "148 minutes",
         discription: "Inception is a thriller of science fiction American-British written, directed and produced by Christopher Nolan, released in 2010.",
-        id:Date.now()
+        id:uuidv4()
 
     },
     

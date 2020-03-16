@@ -3,13 +3,14 @@ import {
     EDIT_MOVIE,
     ADD_MOVIE
   } from '../Constants/actions-types';
+  import { v4 as uuidv4 } from 'uuid';
 
   export const addNewMovie = payload=> ({
     
     type: ADD_MOVIE,
     payload:{
     ...payload,
-      id:Date.now()
+    id:uuidv4()
     }
     
   }
@@ -21,7 +22,7 @@ import {
     
   });
 
-  export const handlDelete = payload => ({
+  export const handlDelete = id => ({
     type: DELETE_MOVIE,
-    payload
+    id
   });

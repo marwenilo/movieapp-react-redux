@@ -78,7 +78,7 @@ class Maodal extends React.Component {
         <Modal
           title="Basic Modal"
           visible={this.state.visible}
-          onOk={()=>{this.handleOk()}}
+          onOk={()=>{this.handleOk()} }
           onCancel={this.handleCancel}
         >
 

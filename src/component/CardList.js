@@ -1,15 +1,15 @@
 import React from "react";
+
 import Card from "./Card";
 
-const CardList = ({ movies, deleteMovie, error }) => {
+const CardList = ({ movies, error }) => {
   return (
     <div className="movieApp">
-      {movies.map((elm, key) => (
+      {movies.map((el, key) => (
         <Card
           key={key}
-          e={elm}
-          deleteMovie={() => deleteMovie(elm.name)}
-          error={() => error(elm.name)}
+          e={el}
+          error={() => error(el.name)}
         />
       ))}
     </div>

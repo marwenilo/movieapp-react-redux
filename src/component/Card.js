@@ -1,12 +1,14 @@
 import React from "react";
+import {connect} from "react-redux"
+import {handlDelete} from "../Js/actions/actions"
 import Rating from "./Rating";
 import { Button, message } from "antd";
 
-const Card = ({ e, deleteMovie, error }) => {
+const Card = ({ e, handlDelete, error }) => {
   const warning = e => {
     message.warning(`You gonna edit this movie : ${e.name}`);
   };
-
+console.log(e.id)
   return (
     <div className="movieCard flip-card" style={{ margin: "10px" }}>
       <div className="flip-card-inner">
@@ -16,7 +18,7 @@ const Card = ({ e, deleteMovie, error }) => {
           </div>
           <div className="movieDesc">
             <p className="textName">
-              {e.name} - {e.year}
+              {e.name} - {e.id}
             </p>
             <Rating minRate={e.star} />
           </div>
@@ -30,7 +32,7 @@ const Card = ({ e, deleteMovie, error }) => {
             <Button
               type="danger dashed"
               className="btnEdit"
-              onClick={() => (deleteMovie(e.name), error(e.name))}
+              onClick={() => {handlDelete(e.id); error(e.name)}}
             >
               Delete
             </Button>
@@ -48,5 +50,4 @@ const Card = ({ e, deleteMovie, error }) => {
     </div>
   );
 };
-
-export default Card;
+export default connect(null, {handlDelete})(Card);
