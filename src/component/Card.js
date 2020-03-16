@@ -2,6 +2,8 @@ import React from "react";
 import {connect} from "react-redux"
 import {handlDelete} from "../Js/actions/actions"
 import Rating from "./Rating";
+import Modal from "./Modal";
+
 import { Button, message } from "antd";
 
 const Card = ({ e, handlDelete, error }) => {
@@ -40,13 +42,14 @@ const Card = ({ e, handlDelete, error }) => {
             >
               Delete
             </Button>
-            <Button
+            <Modal
+            cardInfo={e}
               type="warning dashed"
               className="btnDelite"
               onClick={warning}
-            >
-              Edite
-            </Button>
+            />
+              
+           
           </div>
           <div className="backcover"></div>
         </div>

@@ -33,7 +33,7 @@ const movieReducer = (state = InitialState, { type, payload, id }) => {
 
                 return {
                     ...state,
-                    movies: state.movies.map(el =>el.id === payload.id ? payload : el
+                    movies: state.movies.map(el => el.id === payload.id ? payload: el
                         //this payload is and obj with the id of the movie that we want to change and the rest of the new info from modal 
                     )
                   };

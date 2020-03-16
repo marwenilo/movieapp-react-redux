@@ -3,18 +3,18 @@ import { connect } from 'react-redux';
 
 import { Modal, Button } from 'antd';
 import 'antd/dist/antd.css'
-import { addNewMovie } from '../Js/actions/actions'
+import { addNewMovie, handleEdit } from '../Js/actions/actions'
 
 
 class Maodal extends React.Component {
 
   state = { 
 
-    name:'',
+    name : this.props.cardInfo? this.props.cardInfo.name : "",
 
-    img:'',
+    img : this.props.cardInfo? this.props.cardInfo.img : "",
 
-    star:3,
+    star : this.props.cardInfo? this.props.cardInfo.star : 3,
 
     visible: false 
 
@@ -30,27 +30,40 @@ class Maodal extends React.Component {
 
   handleOk = () => {
 
+    this.props.cardInfo?
+
+    this.props.handleEdit({img:this.state.img,
+      name:this.state.name,
+      star:this.state.star,
+      id:this.props.cardInfo.id
+      })
+
+      &&
+
+      this.setState({
+        visible: false
+      })
+
+    :
+    
     this.props.addNewMovie({img:this.state.img,
       name:this.state.name,
-      star:this.state.star
+      star:this.state.star,
       })
-  
-    this.setState({
 
+  &&
+
+    this.setState({
       visible: false,
       name:'',
       img:'',
       star:3,
-
     });
-
   };
 
   handleCancel = () => {
 
- 
     this.setState({
-
       visible: false,
     });
 
@@ -98,4 +111,4 @@ class Maodal extends React.Component {
   }
 }
 
-export default connect(null, {addNewMovie})(Maodal);
+export default connect(null, {addNewMovie, handleEdit})(Maodal);
