@@ -9,16 +9,19 @@ import {
 
 
   const InitialState = {movies}
+
 const movieReducer = (state = InitialState, { type, payload }) => {
       switch (type) {
           case ADD_MOVIE:
+          
             return {
-                ...state,
-               
-                movies: [...state.movies, payload]
+              ...state,
+              movies: [...state.movies, payload ]
                 //this payload is obj {} full of the info from modal
-              };
-
+              }
+              
+              ;
+             
           case DELETE_MOVIE:
 
             return {
@@ -27,14 +30,19 @@ const movieReducer = (state = InitialState, { type, payload }) => {
                 //this payload is full of the id from the click of the movie delete btn 
             };
               case EDIT_MOVIE:
+
                 return {
                     ...state,
                     movies: state.movies.map(el =>el.id === payload.id ? payload : el
                         //this payload is and obj with the id of the movie that we want to change and the rest of the new info from modal 
                     )
                   };
+
           default:
+
               return state
+         
       }
   }
+
   export default movieReducer;

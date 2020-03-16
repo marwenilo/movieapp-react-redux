@@ -4,17 +4,21 @@ import {
     ADD_MOVIE
   } from '../Constants/actions-types';
 
-  export const addNewMovie = payload => ({
+  export const addNewMovie = payload=> ({
+    
     type: ADD_MOVIE,
-    payload
-  });
+    payload:{
+    ...payload,
+      id:Date.now()
+    }
+    
+  }
+  );
 
   export const handleEdit = payload => ({
     type: EDIT_MOVIE,
-    payload:{
-        ...payload,
-        id:Date.now()
-    }
+     payload
+    
   });
 
   export const handlDelete = payload => ({

@@ -8,12 +8,10 @@ import { message } from "antd";
 
 
 
+
 class CardContainer extends Component {
 
   state = {
-
-    movies:this.props.movies,
-
     nameFilter: "",
 
     minRatingFilter: 0,
@@ -21,15 +19,7 @@ class CardContainer extends Component {
     deletedMovie: ""
 
   };
-
-  //
-  addNewMovie = (img, name, star) => {
-    this.setState({
-      movies: this.state.movies.concat({ img, star, name })
-    });
-  };
-
-  //
+ 
   handleSearch = input => {
     this.setState({
       nameFilter: input
@@ -58,7 +48,8 @@ class CardContainer extends Component {
 
 
   render() {
-    const filtered = this.state.movies.filter(
+    
+    const filtered = this.props.movies.filter(
       el =>
         el.star >= this.state.minRatingFilter &&
         el.name.toLowerCase().includes(this.state.nameFilter.toLowerCase())
@@ -71,8 +62,8 @@ class CardContainer extends Component {
         <div className="header">
 
           <NameFilter handleSearch={this.handleSearch} b={this.searchMovies} />
-          
-          <Modal add={this.addNewMovie} />
+            
+          <Modal/>
 
           <Rate
             minRate={this.state.minRatingFilter}
@@ -93,11 +84,8 @@ class CardContainer extends Component {
   }
 }
 
-
 const mapStateToProps = state => ({
   movies: state.movieReducer.movies,
 
 });
-
-
 export default connect(mapStateToProps)(CardContainer);

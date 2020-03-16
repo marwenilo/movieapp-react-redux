@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
+
+
 import CardContainer from './component/CardContainer';
 import 'antd/dist/antd.css'
 import './App.css';
 
 class App extends Component {
   render() {
+   
   return (
  
     <div className="App">
-     <CardContainer />
+     <CardContainer movies={this.props.movies}/>
+   
      
     </div>
    
   );
 }
 }
-export default App;
+
+export default App
