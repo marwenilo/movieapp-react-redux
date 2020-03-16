@@ -16,10 +16,10 @@ class CardContainer extends Component {
 
     minRatingFilter: 0,
 
-    deletedMovie: ""
-
   };
  
+  //
+  
   handleSearch = input => {
     this.setState({
       nameFilter: input
@@ -27,18 +27,13 @@ class CardContainer extends Component {
   };
 
   //
+
   error = name => {
     message.error(`You did deleted this movie : ${name}`);
   };
 
   //
-  handlDelete = movie => {
-    this.setState({
-      movies: this.state.movies.filter(el => el.name !== movie)
-    });
-  };
 
-  //
   handleChange = newRating => {
     this.setState({
       minRatingFilter: newRating
@@ -61,7 +56,9 @@ class CardContainer extends Component {
 
         <div className="header">
 
-          <NameFilter handleSearch={this.handleSearch} b={this.searchMovies} />
+          <NameFilter 
+          handleSearch={this.handleSearch} 
+          b={this.searchMovies} />
             
           <Modal/>
 
@@ -74,7 +71,6 @@ class CardContainer extends Component {
 
         <CardList
           movies={filtered}
-          // deleteMovie={this.handlDelete}
           error={this.error}
         />
 

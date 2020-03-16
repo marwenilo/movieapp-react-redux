@@ -5,11 +5,15 @@ import Rating from "./Rating";
 import { Button, message } from "antd";
 
 const Card = ({ e, handlDelete, error }) => {
+
   const warning = e => {
+
     message.warning(`You gonna edit this movie : ${e.name}`);
+
   };
-console.log(e.id)
+
   return (
+
     <div className="movieCard flip-card" style={{ margin: "10px" }}>
       <div className="flip-card-inner">
         <div className="movieCard flip-card">
@@ -18,7 +22,7 @@ console.log(e.id)
           </div>
           <div className="movieDesc">
             <p className="textName">
-              {e.name} - {e.id}
+              {e.name} - {e.year}
             </p>
             <Rating minRate={e.star} />
           </div>
@@ -48,6 +52,8 @@ console.log(e.id)
         </div>
       </div>
     </div>
+
   );
 };
+
 export default connect(null, {handlDelete})(Card);
